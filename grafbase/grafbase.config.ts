@@ -14,7 +14,6 @@ import { g, auth, config } from "@grafbase/sdk";
 
 const post = g.model("Post", {
   title: g.string(),
-  url: g.url().unique(),
   comments: g
     .relation(() => comment)
     .optional()
@@ -35,8 +34,9 @@ const comment = g.model("Comment", {
 });
 
 const user = g.model("User", {
-  name: g.string(),
-  email: g.email().optional(),
+  first_name: g.string(),
+  last_name: g.string(),
+  email: g.email().optional().unique(),
   posts: g.relation(post).optional().list().optional(),
   comments: g.relation(comment).optional().list().optional(),
 
