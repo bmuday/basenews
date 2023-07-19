@@ -34,9 +34,9 @@ const comment = g.model("Comment", {
 });
 
 const user = g.model("User", {
-  first_name: g.string(),
-  last_name: g.string(),
-  email: g.email().optional().unique(),
+  firstName: g.string(),
+  lastName: g.string(),
+  email: g.email().unique(),
   posts: g.relation(post).optional().list().optional(),
   comments: g.relation(comment).optional().list().optional(),
 
