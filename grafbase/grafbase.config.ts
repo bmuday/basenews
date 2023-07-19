@@ -20,18 +20,17 @@ const post = g.model("Post", {
     .optional()
     .list()
     .optional(),
-  // slug: g.string().unique(),
-  // content: g.string().optional(),
-  // publishedAt: g.datetime().optional(),
-  // likes: g.int().default(0),
+  slug: g.string().unique(),
+  content: g.string(),
+  publishedAt: g.datetime(),
+  likes: g.int().default(0),
   // tags: g.string().optional().list().length({ max: 5 }),
-  // author: g.relation(() => user).optional()
+  author: g.relation(() => user).optional(),
 });
 
 const comment = g.model("Comment", {
   message: g.string(),
   post: g.relation(post),
-  likes: g.int().default(0),
   author: g.relation(() => user).optional(),
 });
 
