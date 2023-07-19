@@ -28,8 +28,8 @@ const post = g.model("Post", {
 });
 
 const category = g.model("Category", {
-  title: g.string(),
-  posts: g.relation(post).optional().list().optional(),
+  name: g.string(),
+  // posts: g.relation(post).optional().list().optional(),
 });
 
 const comment = g.model("Comment", {
@@ -42,8 +42,8 @@ const user = g.model("User", {
   firstName: g.string(),
   lastName: g.string(),
   email: g.email().unique(),
-  posts: g.relation(post).optional().list().optional(),
-  comments: g.relation(comment).optional().list().optional(),
+  // posts: g.relation(post).optional().list().optional(),
+  // comments: g.relation(comment).optional().list().optional(),
 
   // Extend models with resolvers
   // https://grafbase.com/docs/edge-gateway/resolvers
