@@ -14,17 +14,17 @@ import { g, auth, config } from "@grafbase/sdk";
 
 const post = g.model("Post", {
   title: g.string(),
-  comments: g
-    .relation(() => comment)
-    .optional()
-    .list()
-    .optional(),
   slug: g.string().unique(),
   content: g.string(),
   likes: g.int().default(0),
   category: g.relation(() => category),
   tags: g.string().optional().list().length({ max: 5 }),
   author: g.relation(() => user),
+  comments: g
+    .relation(() => comment)
+    .optional()
+    .list()
+    .optional(),
 });
 
 const category = g.model("Category", {
